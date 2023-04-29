@@ -1,25 +1,10 @@
-@mixin fontBasic14 {
-    font-family:'Shadows Into Light', cursive;
-    font-size: 16px;
-    line-height: 100%;
-    font-weight: 800;
-    color: black;
-    letter-spacing: 1px;
-}
-
-.fontBasic14{
-    @include fontBasic14;
-}
-
-@mixin fontBasic12 {
-    font-family:'Shadows Into Light', cursive;
+@mixin ssurroundair {
+    font-family:'ssurroundair', ssurroundair;
     font-size: 14px;
-    line-height: 100%;
-    font-weight: 800;
-    color: white;
-    letter-spacing: 1.5px;
+    line-height: 280%;
+    font-weight: 600;
 }
 
-.fontBasic12{
-    @include fontBasic12;
+.ssurroundair{
+    @include ssurroundair;
 }

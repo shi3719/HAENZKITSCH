@@ -27,13 +27,43 @@
 <body>
     <section>
         <div class="bg"></div>
-        <div class="k"></div>
-        <div class="i"></div>
-        <div class="t"></div>
-        <div class="s"></div>
-        <div class="c"></div>
-        <div class="h"></div>
-        
+        <div class="k letter play">
+            <div></div>
+        </div>
+        <div class="i letter play">
+            <div></div>
+        </div>
+        <div class="t letter play">
+            <div></div>
+        </div>
+        <div class="s letter play">
+            <div></div>
+        </div>
+        <div class="c letter play">
+            <div></div>
+        </div>
+        <div class="h letter play">
+            <div></div>
+        </div>
+        <div class="stars stars1">
+            <div></div>
+        </div>
+        <div class="stars stars2">
+            <div></div>
+        </div>
+        <div class="stars stars3">
+            <div></div>
+        </div>
+
+        <div class="p_wrap">
+            <p class="ssurroundair">내가 좋아하는 것만 하면<br>뭐 어때?</p>
+            <p class="ssurroundair">답답한 이 세상 앞엔<br>멋대로 할래</p>
+        </div>
+
+        <div class="btn_wrap">
+            <p class="ssurroundair">click letters</p>
+            <div></div>
+        </div>
     </section>
 
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
@@ -41,6 +71,14 @@
 
     <script>
 
+        const letters = document.querySelectorAll('.letter');
+        
+        letters.forEach((letter) => {
+            letter.addEventListener('click', () => {
+                letter.classList.toggle('play');
+                letter.classList.toggle('stop');
+            })
+        });
     </script>
 </body>
 

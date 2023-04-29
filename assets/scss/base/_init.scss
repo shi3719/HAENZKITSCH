@@ -4,38 +4,25 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
-    font-family:'Shadows Into Light', cursive;
+    font-family:'jost',jost,'ssurroundair',ssurroundair, cursive;
     word-break: keep-all;
     word-wrap: break-word;
     box-sizing: border-box;
+    cursor: url(/assets/images/normal.png) 2 2, url(/assets/images/normal.cur) 2 2, auto;
 }
 
 .off{
     display: none !important;
 }
 
-$breakPoint: 720px;
-
-@mixin mobile {
-    @media (max-width: #{$breakPoint - 1px}) {
+@mixin portrait {
+    @media (orientation: portrait) {
         @content;
     }
 }
 
-@mixin tablet {
-    @media (min-width: $breakPoint) {
+@mixin landscape {
+    @media (orientation: landscape) {
         @content;
-    }
-}
-
-.web_none{
-    @include tablet{
-        display: none;
-    }
-}
-
-.mobile_none{
-    @include mobile{
-        display: none;
     }
 }

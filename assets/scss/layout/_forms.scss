@@ -1,218 +1,412 @@
-section{
-    background-color: $black;
-}
-
-.full_section_swiper{
+section {
     width: 100%;
     height: 100vh;
-    height: calc(var(--var, 1vh) * 100);
-    margin: 0 auto;
+    position: relative;
     overflow: hidden;
-
-    @include tablet{
-        width: 400px;
-        margin: 0 auto;
-    }
-
-    .swiper-slide{
-        height: 100%;
-    }
 }
 
-//시작페이지
-.first_section{
-    position: relative;
-    @include flex_center;
-    flex-direction: column;
-    overflow: scroll;
-
-    .top{
-        height: fit-content;
-        position: relative;
-        transform: translateY(10px);
-
-        .whoishe1{
-            width: 100%;
-        }
-
-        .omg1{
-            width: 27%;
-            position: absolute;
-            left: 25px;
-            bottom: 25px;
-    
-            animation-name: flash;
-            animation-duration: 5s;
-            animation-iteration-count: infinite;
-        }
-    }
-
-    .main{
-        width: calc(100% - 50px);
-        margin: 0 auto;
-        transform: translateY(-10px);
-
-        .items{
-            @include flex_center;
-            flex-wrap: wrap;
-
-            >li{
-                width: calc(100% / 3);
-                height: fit-content;
-                background-color: white;
-
-                ul{
-                    padding-bottom: 127%;
-                    overflow: hidden;
-                    border: 2px solid $black;
-                    position: relative;
-
-                    &.on{
-                        border: 2px solid $blue;
-                    }
-
-                    >li{
-                        position: absolute;
-                        width: 100%;
-                        height: 100%;
-                        @include bgCover;
-                        opacity: 0;
-                        @include flex_center;
-
-                        &.on{
-                            opacity: 1;
-                        }
-                    }
-                }
-            }
-        }
-
-        .btn_wrap{
-            @include flex_between_center;
-            margin-top: 32px;
-            margin-bottom: 32px;
-
-            @include mobile{
-                margin: 20px auto;
-            }
-
-            >li{
-                cursor: pointer;
-                width: 100px;
-                text-transform: uppercase;
-
-                &:last-child{
-                    cursor: unset;
-                    text-align: right;
-                }
-            }
-
-            .stop_btn{
-                background-color: $white;
-                border-radius: 100%;
-                width: 70px;
-                height: 70px;
-                @include flex_center;
-                
-                >div{
-                    width: 60px;
-                    height: 60px;
-                    border-radius: 100%;
-                    border: 1px solid $black;
-                    @include flex_center;
-
-                    &:hover{
-                        background-color: black;
-                        color: white;
-                    }
-                }
-            }
-        }
-    }
+.bg {
+    width: 102%;
+    height: 102%;
+    @include fix_center;
+    background-image: url(/assets/images/bg.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.etc{
-    .fontBasic12{
-        color: black;
-    }
-}
+.stars {
+    position: absolute;
+    opacity: 0.6;
 
-//결과페이지
-
-.end_section{
-    position: relative;
-    @include flex_center;
-    flex-direction: column;
-
-    .top{
-        height: fit-content;
-        position: relative;
-        transform: translateY(20px);
-
-        .whoishe2{
-            width: 100%;
-        }
-    }
-
-    .omg2{
-        width: 230px;
+    >div {
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
         position: absolute;
-        z-index: 5;
-        left: -25px;
-        top: -80px;
+        background-image: url(/assets/images/stars.png);
+    }
 
-        animation-name: flash;
+    @include portrait {
+        width: 25%;
+
+        >div {
+            padding-bottom: 371%;
+        }
+
+        &.stars1 {
+            top: -10px;
+            right: -10px;
+        }
+
+        &.stars2 {
+            top: 50%;
+            left: -10px;
+            transform: translateY(-50vw);
+        }
+
+        &.stars3 {
+            @include abs_center;
+            bottom: 18%;
+        }
+    }
+
+    @include landscape {
+        width: 25%;
+        height: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+
+
+        >div {
+            height: 100%;
+        }
+
+        &.stars1 {
+            right: 5%;
+        }
+
+        &.stars2 {
+            @include fix_center
+        }
+
+        &.stars3 {
+            left: 5%;
+        }
+    }
+}
+
+.letter {
+    position: absolute;
+
+    >div {
+        width: 100%;
+        background-size: contain;
+        background-repeat: no-repeat;
+        position: absolute;
+    }
+
+    &.stop{
+        >div{
+            animation-play-state: paused;
+
+            &:hover{
+                cursor: url(/assets/images/play.png) 2 2, url(/assets/images/play.cur) 2 2, auto;
+            }
+        }
+    }
+
+    &.play{
+        >div{
+            animation-play-state: running;
+
+            &:hover{
+                cursor: url(/assets/images/stop.png) 2 2, url(/assets/images/stop.cur) 2 2, auto;
+            }
+        }
+    }
+}
+
+.k {
+    z-index: 10;
+
+    >div {
+        padding-bottom: 88.2%;
+        background-image: url(/assets/images/k.png);
+
+        animation-name: kani;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+    }
+
+    @include portrait {
+        width: 85%;
+        top: -2%;
+        left: -10%;
+    }
+
+    @include landscape {
+        width: 40%;
+        top: -2%;
+        left: -4%;
+    }
+
+    @keyframes kani {
+        from {
+            transform: translate(0%, 5%) rotate(2deg);
+        }
+
+        to {
+            transform: translate(0%, 0%) rotate(0deg);
+
+        }
+    }
+}
+
+.i {
+    z-index: 20;
+
+    >div {
+        padding-bottom: 178.1%;
+        background-image: url(/assets/images/i.png);
+
+        animation-name: iani;
         animation-duration: 1s;
         animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        animation-timing-function: ease-in-out;        
     }
 
-    .result{
-        width: calc(100% - 50px);
-        margin: 0 auto;
-        transform: translateY(-20px);
+    @include portrait {
+        width: 30%;
+        top: 17%;
+        right: 13%;
+    }
 
-        .result_img{
-            width: calc(100% - 50px);
-            margin: 0 auto;
+    @include landscape {
+        z-index: 30;
+        width: 15%;
+        top: 30%;
+        left: 25%;
+        transform: rotate(2deg);
+    }
 
-            ul{
-                width: 100%;
-                padding-bottom: 125%;
-                background-color: white;
-                position: relative;
-                border: 2px solid black;
-
-                >li{
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    @include bgCover;
-                    z-index: 3;
-
-                    &:nth-child(1){
-                        z-index: 1;
-                    }
-                    &:nth-child(2){
-                        z-index: 2;
-                    }
-
-                    &:nth-child(6){
-                        z-index: 5;
-                    }
-                }
-            }
+    @keyframes iani {
+        from {
+            transform: translate(0%, 0%) rotate(-5deg);
         }
 
-        .replay_btn{
-            width: 40px;
-            margin: 0 auto;
-            margin-top: 50px;
-            cursor: pointer;
-            >img{
-                width: 100%;
+        to {
+            transform: translate(0%, 5%) rotate(0deg);
+        }
+    }
+}
+
+.t {
+    z-index: 40;
+
+    >div {
+        padding-bottom: 121.7%;
+        background-image: url(/assets/images/t.png);
+
+        animation-name: tani;
+        animation-duration: 4s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+    }
+
+    @include portrait {
+        width: 40%;
+        top: 40%;
+        left: 10%;
+    }
+
+    @include landscape {
+        z-index: 20;
+        width: 25%;
+        top: 22%;
+        right: 38%;
+    }
+
+    @keyframes tani {
+        from {
+            transform: translate(0%, 8%) rotate(1deg);
+        }
+
+        to {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+}
+
+.s {
+    z-index: 30;
+
+    >div {
+        padding-bottom: 72%;
+        background-image: url(/assets/images/s.png);
+
+        animation-name: sani;
+        animation-duration: 1.5s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+    }
+
+    @include portrait {
+        width: 67%;
+        top: 45%;
+        right: -8%;
+    }
+
+    @include landscape {
+        z-index: 10;
+        width: 40%;
+        bottom: 40%;
+        right: 20%;
+    }
+
+    @keyframes sani {
+        from {
+            transform: translate(0%, 15%) rotate(0deg);
+        }
+
+        to {
+            transform: translate(0%, 0%) rotate(2deg);
+        }
+    }
+}
+
+.c {
+    z-index: 90;
+
+    >div {
+        padding-bottom: 118%;
+        background-image: url(/assets/images/c.png);
+
+        animation-name: cani;
+        animation-duration: 5s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+        animation-timing-function: cubic-bezier(.96, -0.01, .26, .99);
+    }
+
+    @include portrait {
+        width: 45%;
+        top: 57%;
+        left: 15%;
+    }
+
+    @include landscape {
+        width: 23%;
+        top: -8%;
+        right: 10%;
+    }
+
+    @keyframes cani {
+        from {
+            transform: translate(0%, 8%) rotate(0deg);
+        }
+
+        to {
+            transform: translate(0%, 0%) rotate(360deg);
+        }
+    }
+}
+
+.h {
+    z-index: 80;
+
+    >div {
+        padding-bottom: 195%;
+        background-image: url(/assets/images/h.png);
+
+        animation-name: hani;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-fill-mode: forwards;
+        animation-direction: alternate;
+    }
+
+    @include portrait {
+        width: 65%;
+        bottom: 35%;
+        right: -10%;
+    }
+
+    @include landscape {
+        width: 35%;
+        bottom: 80%;
+        right: -10%;
+    }
+
+    @keyframes hani {
+        from {
+            transform: translate(0%, -5%) rotate(-10deg);
+        }
+
+        to {
+            transform: translate(0%, 0%) rotate(0deg);
+        }
+    }
+}
+
+.p_wrap{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 5;
+    
+    p{
+        color: #F47AAC;
+        position: absolute;
+        width: 100%;
+        padding: 5%;
+        
+        &:nth-child(1){
+            top: 5%;
+            text-align: right;
+
+            @include landscape {
+                top: 0;
+                text-align: center;
             }
+        }
+        &:nth-child(2){
+            text-align: left;
+            bottom: 5%;
+        }
+    }
+}
+
+.btn_wrap{
+    width: 100%;
+    height: 32px;
+    @include fix_center;
+    top: 42%;
+    z-index: 8;
+
+    >p{
+        text-align: center;
+        color: #68D2F2;
+    }
+
+    >div{
+        @include abs_center;
+
+        width: 32px;
+        height: 32px;
+        background-image: url(/assets/images/cursor_img.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+
+        animation-name: twinkle;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+    }
+    
+    @keyframes twinkle {
+        from{
+            opacity: 0;
+        }        
+
+        49%{
+            opacity: 0;
+        }
+
+        50%{
+            opacity: 1;
+        }
+
+        to{
+            opacity: 1;
         }
     }
 }

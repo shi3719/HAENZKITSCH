@@ -1,7 +1,16 @@
 @font-face {
-    font-family: AGiSaRangCe;
+    font-family: jost;
     font-style: normal;
     font-weight: 500;
-    src: url(/assets/fonts/AGiSaRangCe.ttf);
-    src: url(/assets/fonts/AGiSaRangCe.ttf) format("ttf")
+    src: url(/assets/fonts/Jost-700-BoldItalic.otf);
+    src: url(/assets/fonts/Jost-700-BoldItalic.otf) format("opentype")
 }
+
+@font-face {
+    font-family: ssurroundair;
+    font-style: normal;
+    font-weight: 500;
+    src: url(/assets/fonts/Cafe24SsurroundAir.ttf);
+    src: url(/assets/fonts/Cafe24SsurroundAir.ttf) format("truetype")
+}
+
